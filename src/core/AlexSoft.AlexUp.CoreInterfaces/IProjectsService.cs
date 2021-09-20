@@ -3,11 +3,12 @@
     using System;
     using System.Collections.Generic;
     using System.Text;
+    using AlexSoft.AlexUp.Models;
 
     public interface IProjectsService
     {
         string GetHealth();
 
-        string GetAll(string value);
+        Project[] GetAll();
     }
 }

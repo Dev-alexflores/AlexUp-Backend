@@ -9,6 +9,6 @@
     {
         string GetHealth();
 
-        List<Project> GetAllProjects();
+        IEnumerable<Project> GetAllProjects();
     }
 }

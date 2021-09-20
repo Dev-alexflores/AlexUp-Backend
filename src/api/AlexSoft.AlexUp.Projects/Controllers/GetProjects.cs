@@ -8,6 +8,7 @@ namespace AlexSoft.AlexUp.Projects
     using Microsoft.Azure.WebJobs;
     using Microsoft.Azure.WebJobs.Extensions.Http;
     using Microsoft.Azure.WebJobs.Extensions.OpenApi.Core.Attributes;
+    using Microsoft.Extensions.Primitives;
     using Microsoft.OpenApi.Models;
 
     public class GetProjects
@@ -19,15 +20,18 @@ namespace AlexSoft.AlexUp.Projects
             this.iprojectservice = iprojectservice;
         }
 
-        [FunctionName("GetAll")]
+        [FunctionName("getAll")]
         [OpenApiOperation(operationId: "GetAll", tags: new[] { "name" })]
-        [OpenApiParameter(name: "name", In = ParameterLocation.Query, Required = true, Type = typeof(string), Description = "The **Name** parameter")]
+
+        // [OpenApiParameter(name: "id", In = ParameterLocation.Query, Required = true, Type = typeof(int), Description = "The **Name** parameter")]
         [OpenApiResponseWithBody(statusCode: HttpStatusCode.OK, contentType: "text/plain", bodyType: typeof(string), Description = "The OK response")]
-        public IActionResult GetAllInf(
-            [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = null)] HttpRequest req)
+        public IActionResult Run(
+            [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "v1/projects")] HttpRequest req)
         {
-            string name = req.Query["name"];
-            var result = this.iprojectservice.GetAll(name);
+            // req.Query.TryGetValue("id", out StringValues id);
+            // int? idProject;
+            // idProject = int.Parse(id);
+            var result = this.iprojectservice.GetAll();
             return new OkObjectResult(result);
         }
     }
