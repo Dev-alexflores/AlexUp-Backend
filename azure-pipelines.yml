@@ -86,7 +86,7 @@ jobs:
         - task: AzureFunctionApp@1
           displayName: 'Deploy API'
           inputs:
-            azureSubscription: ${{ parameters.azureSubscription }}
+            azureSubscription: 'AlexUp (68417a70-80ac-4db7-b7a2-46959c7bdf82)'
             appType: 'functionAppLinux'
             appName: ${{ parameters.appName }}
             package: '$(Pipeline.Workspace)/drop/$(Build.BuildId).zip'
