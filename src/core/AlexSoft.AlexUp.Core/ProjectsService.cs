@@ -1,8 +1,10 @@
 ﻿namespace AlexSoft.AlexUp.Core
 {
     using System;
+    using System.Linq;
     using AlexSoft.AlexUp.CoreInterfaces;
     using AlexSoft.AlexUp.DALInterfaces;
+    using AlexSoft.AlexUp.Models;
 
     public class ProjectsService : IProjectsService
     {
@@ -13,9 +15,10 @@
             this.repository = irepository;
         }
 
-        public string GetAll(string value)
+        public Project[] GetAll()
         {
-            return $"Hi {value} welcome to my app";
+            var result = this.repository.GetAllProjects();
+            return result.ToArray();
         }
 
         public string GetHealth()

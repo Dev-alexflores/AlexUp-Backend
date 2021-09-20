@@ -14,20 +14,20 @@ namespace AlexSoft.AlexUp.ApiUnitTests
         private readonly Mock<IProjectsService> mockService;
         private readonly DefaultHttpContext mockHttpContext;
         private readonly GetHealth getHealth;
+        private readonly GetProjects getAll;
 
         public GetProjectsTests()
         {
             this.mockService = new Mock<IProjectsService>();
             this.mockHttpContext = new DefaultHttpContext();
             this.getHealth = new GetHealth(this.mockService.Object);
+            this.getAll = new GetProjects(this.mockService.Object);
         }
 
         [Fact]
-        public void GetProjects_ShouldReturnAllProjects()
+        public void GetHealth_ShouldReturnTextOk()
         {
             // Arrange
-            Project[] projects = new Project[2];
-            projects[0] = StubProject.GetStubProject();
             var request = this.mockHttpContext.Request;
             this.mockService.Setup(service => service.GetHealth()).Returns("string");
 
@@ -37,6 +37,23 @@ namespace AlexSoft.AlexUp.ApiUnitTests
             // Assert
             var okObjectResult = Assert.IsType<OkObjectResult>(result);
             Assert.IsType<string>(okObjectResult.Value);
+        }
+
+        [Fact]
+        public void GetAllProjects_shouldReturn_AllProjects()
+        {
+            // Arrange
+            Project[] projects = new Project[2];
+            projects[0] = StubProject.GetStubProject();
+            var request = this.mockHttpContext.Request;
+            this.mockService.Setup(service => service.GetAll()).Returns(projects);
+
+            // Act
+            var response = this.getAll.Run(request);
+
+            // Assert
+            var okObjectResult = Assert.IsType<OkObjectResult>(response);
+            Assert.IsType<Project[]>(okObjectResult.Value);
         }
     }
 }
