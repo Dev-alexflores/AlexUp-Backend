@@ -84,7 +84,7 @@ stages:
   jobs: 
   - deployment: Deploy
     displayName: 'Deploy to dev'
-    environment: $(envName)
+    environment: 'dev'
     strategy:
       runOnce:
         deploy:
