@@ -1,7 +1,3 @@
-pr:
-  branches:
-    include:
-      - main
 parameters:
   - name: 'vmImage'
     default: 'ubuntu-latest'
@@ -21,12 +17,6 @@ parameters:
   - name: 'styleCopEnabled'
     default: 'true'
     type: string
-  - name: 'azureSubscription'
-    default: 'rg-dev-cote-bra (68417a70-80ac-4db7-b7a2-46959c7bdf82)'
-    type: string
-  - name: 'appName'
-    default: 'fa-cdapi-projects-dev-bra'
-    type: string
 
 jobs:
 - job: Build
@@ -45,11 +35,13 @@ jobs:
       command: 'build'
       projects: ${{ parameters.projectsPath }}
       arguments: '--configuration ${{ parameters.buildConfiguration }} --output $(Build.ArtifactStagingDirectory) /p:TreatWarningsAsErrors=${{ parameters.styleCopEnabled }}'
+  
   - task: DotNetCoreCLI@2
     displayName: 'Dotnet Test'
     inputs:
       command: 'test'
       projects: ${{ parameters.testProjectsPath }}
+
   - task: DotNetCoreCLI@2
     displayName: 'Dotnet Publish'
     condition: and(succeeded(), ne(variables['Build.Reason'], 'PullRequest'))
