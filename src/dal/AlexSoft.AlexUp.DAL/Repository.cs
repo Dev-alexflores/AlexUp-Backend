@@ -54,9 +54,8 @@
                     State = true,
                     TextInvitation = "laboriosam cumque consequatur",
                     CreationDate = DateTime.Today.AddDays(-5),
-                }
-                new 
-                
+                },
+                new Project
                 {
                     Id = new Guid("5a7939fd-59de-33bd-a092-f5d8434584de"),
                     Name = "Cote actions",
@@ -78,7 +77,7 @@
                     State = true,
                     TextInvitation = "laboriosam cumque consequatur",
                     CreationDate = DateTime.Today.AddDays(-5),
-                }
+                },
                 new Project
                 {
                     Id = new Guid("5a7939fd-59de-33bd-a092-f5d8434584de"),
@@ -101,7 +100,7 @@
                     State = true,
                     TextInvitation = "laboriosam cumque consequatur",
                     CreationDate = DateTime.Today.AddDays(-5),
-                }
+                },
                 new Project
                 {
                     Id = new Guid("5a7939fd-59de-33bd-a092-f5d8434584de"),
@@ -124,7 +123,7 @@
                     State = true,
                     TextInvitation = "laboriosam cumque consequatur",
                     CreationDate = DateTime.Today.AddDays(-5),
-                }
+                },
                 new Project
                 {
                     Id = new Guid("5a7939fd-59de-33bd-a092-f5d8434584de"),
@@ -147,7 +146,7 @@
                     State = true,
                     TextInvitation = "laboriosam cumque consequatur",
                     CreationDate = DateTime.Today.AddDays(-5),
-                }
+                },
                 new Project
                 {
                     Id = new Guid("5a7939fd-59de-33bd-a092-f5d8434584de"),
@@ -170,7 +169,7 @@
                     State = true,
                     TextInvitation = "laboriosam cumque consequatur",
                     CreationDate = DateTime.Today.AddDays(-5),
-                }
+                },
                 new Project
                 {
                     Id = new Guid("5a7939fd-59de-33bd-a092-f5d8434584de"),
@@ -193,7 +192,7 @@
                     State = true,
                     TextInvitation = "laboriosam cumque consequatur",
                     CreationDate = DateTime.Today.AddDays(-5),
-                }
+                },
                 new Project
                 {
                     Id = new Guid("5a7939fd-59de-33bd-a092-f5d8434584de"),
@@ -216,8 +215,8 @@
                     State = true,
                     TextInvitation = "laboriosam cumque consequatur",
                     CreationDate = DateTime.Today.AddDays(-5),
-                }
-               new Project
+                },
+                new Project
                 {
                     Id = new Guid("5a7939fd-59de-33bd-a092-f5d8434584de"),
                     Name = "Lueilwitz Group",
